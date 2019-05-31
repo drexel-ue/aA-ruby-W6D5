@@ -28,3 +28,36 @@ def my_transpose(matrix)
     end
     transpose
 end
+
+# def stock_picker(prices)
+#     profit = 0
+#     buy = 0
+#     sell = 0
+    
+#     (0...prices.length-1).each do |el|
+#         (el+1...prices.length).each do |el2|
+#             diff = prices[el2] - prices[el]
+#             if diff > profit
+#                 buy = el
+#                 sell = el2
+#                 profit = diff
+#             end
+#         end
+#     end
+    
+#     [buy, sell]
+# end
+
+def stock_picker(prices)
+    diff, days = [], []
+
+    (0...prices.length-1).each do |el|
+        (el+1...prices.length).each do |el2|
+            diff << prices[el2] - prices[el]
+            days << [el, el2]
+        end
+    end
+
+    days[diff.index(diff.max)]
+
+end

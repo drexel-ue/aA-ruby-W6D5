@@ -41,3 +41,15 @@ describe '#my_transpose' do
 
     end
 end
+
+describe '#stock_picker' do
+
+    subject(:prices) { [1000, 300, 2000000, 3000, 555555, 100000000000] }
+
+    it 'outputs the most profitable pair of days on which to first buy the stock and then sell the stock' do
+        ans = [1, 5]
+
+        expect(stock_picker(prices)).to eq(ans)
+    end
+
+end
