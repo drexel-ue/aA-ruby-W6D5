@@ -13,3 +13,16 @@ h2{
 .ingredients-list {
     list-style: square inside;
 }
+
+ol {
+    list-style: georgian;
+}
+
+header > img {
+    width: 100px;
+}
+
+ul li a {
+    color: inherit;
+    text-decoration-line: none;
+}
