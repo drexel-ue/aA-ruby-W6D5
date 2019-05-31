@@ -18,3 +18,13 @@ class Array
     end
     
 end
+
+def my_transpose(matrix)
+    transpose = Array.new(matrix.length) { [] }
+    matrix.each do |subarray|
+        subarray.each_with_index do |element, index|
+        transpose[index] << element
+        end
+    end
+    transpose
+end
