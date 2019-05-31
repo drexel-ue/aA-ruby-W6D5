@@ -53,3 +53,59 @@ describe '#stock_picker' do
     end
 
 end
+
+describe Hanoi do
+   
+    subject(:game) { Hanoi.new(3) }
+
+    describe '#move' do
+
+        context 'from tower is not empty' do
+
+            context 'when to tower is empty' do
+
+                it 'should move one and only one peice' do
+                    game.move(1, 3)
+                    expect(game.game[0].length).to eq(2)
+                    expect(game.game[2].length).to eq(1)
+                end
+
+            end
+
+            context 'when to tower is not empty' do
+
+                it 'should move one and only one peice' do
+                    game.move(1, 3)
+                    expect(game.game[0].length).to eq(2)
+                    expect(game.game[2].length).to eq(1)
+                end
+                
+                it 'should not put an object on one smaller than it' do
+                    game.game[0] = [3,1]
+                    game.game[1] = [2]
+                    expect {game.move(1, 2)}.to raise_error "can't place a big piece on a small piece" 
+                end
+
+            end
+        end
+
+        context 'from tower is empty' do
+
+            it 'should raise an error' do
+
+                expect {game.move(3,2)}.to raise_error('nothing to move')
+
+            end
+        end
+    
+    end
+    
+    describe '#won?' do
+        it "has all discs in one peg" do
+            winning_peg = game.game.select{|peg| peg.length == game.game.length}
+            expect(game.game.count{|peg| peg.length == game.game.length}).to eq(1)
+            expect(winning_peg == winning_peg.sort)
+        end
+    end
+
+end
