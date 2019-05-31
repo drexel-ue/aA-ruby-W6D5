@@ -14,4 +14,13 @@ describe Array do
         
     end
 
+    describe "#two_sum" do
+        subject(:arr) {[-1,0,2,-2,1]}
+
+        it 'finds all pairs of positions where the elements at those positions sum to zero' do
+            ans = [[0, 4], [2, 3]]
+            expect(arr.two_sum).to eq(ans)
+        end
+    end
+
 end
